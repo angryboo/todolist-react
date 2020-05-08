@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Signin from './components/templates/signin/Signin';
+import Header from './components/organisms/header/Header';
+
+const userInfo = [{ id: 1, userId: 'angryboo', password: '111111' }];
+// let isSignin = false;
 
 function App() {
+  const [_userInfo] = useState(userInfo);
+  const [isSignin, setIsSignin] = useState(false);
+  const [signUser, setSignUser] = useState('Guest');
+
+  const doSignin = (status, id) => {
+    setIsSignin(status);
+    if (isSignin) setSignUser(() => id);
+    console.log(isSignin, signUser);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Signin userInfo={_userInfo} event={doSignin} />
     </div>
   );
 }

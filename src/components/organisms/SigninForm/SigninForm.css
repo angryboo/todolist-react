@@ -1,0 +1,16 @@
+.signin-form {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px 1px rgba(180, 180, 180, 0.5);
+}
+
+.signin-input {
+  margin-top: 50px;
+}
