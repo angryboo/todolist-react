@@ -6,20 +6,26 @@ import SigninForm from '../../organisms/SigninForm/SigninForm';
 
 const st = classNames.bind(style);
 
-const Signin = ({ userInfo, event }) => (
+const Signin = ({ userInfo, setSignedUser, setIsSignedin }) => (
   <div className={st('signin')}>
-    <SigninForm userInfo={userInfo} event={event} />
+    <SigninForm
+      userInfo={userInfo}
+      setSignedUser={setSignedUser}
+      setIsSignedin={setIsSignedin}
+    />
   </div>
 );
 
 Signin.defaultProps = {
   userInfo: [],
-  event: () => {},
+  setSignedUser: () => {},
+  setIsSignedin: () => {},
 };
 Signin.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   userInfo: propTypes.array,
-  event: propTypes.func,
+  setSignedUser: propTypes.func,
+  setIsSignedin: propTypes.func,
 };
 
 export default Signin;

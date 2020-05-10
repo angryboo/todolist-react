@@ -8,7 +8,7 @@ import SigninButton from '../../atoms/signin-button/SigninButton';
 
 const st = classNames.bind(style);
 
-const SigninForm = ({ userInfo, event }) => {
+const SigninForm = ({ userInfo, setSignedUser, setIsSignedin }) => {
   const [idValue, setIdValue] = useState('');
   const [pwValue, setPwValue] = useState('');
 
@@ -20,9 +20,10 @@ const SigninForm = ({ userInfo, event }) => {
 
   const submitBtn = (e) => {
     e.preventDefault();
-    console.log('로그인시도');
-    console.log(`ID는 [${idValue}], 비밀번호는 [${pwValue}]`);
-    event(macthUserInfo(), idValue);
+    if (macthUserInfo()) {
+      setSignedUser(idValue);
+      setIsSignedin(true);
+    }
   };
 
   return (
@@ -39,12 +40,14 @@ const SigninForm = ({ userInfo, event }) => {
 
 SigninForm.defaultProps = {
   userInfo: [],
-  event: () => {},
+  setSignedUser: () => {},
+  setIsSignedin: () => {},
 };
 SigninForm.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   userInfo: propTypes.array,
-  event: propTypes.func,
+  setSignedUser: propTypes.func,
+  setIsSignedin: propTypes.func,
 };
 
 export default SigninForm;
