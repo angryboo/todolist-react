@@ -1,12 +1,11 @@
 .todo-list {
-  width: 100vw;
-  height: 100vh;
-  margin-top: 40px;
+  width: 100%;
+  height: auto;
+  margin-top: 160px;
   list-style: none;
   display: flex;
-  padding-right: 100px;
-  overflow: scroll;
 }
+
 
 .todo-list-item {
   margin-right: 50px;

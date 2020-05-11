@@ -10,10 +10,11 @@ const ListItemTodo = ({ todoitem }) => (
 );
 
 ListItemTodo.defaultProps = {
-  todoitem: '',
+  todoitem: {},
 };
 ListItemTodo.propTypes = {
-  todoitem: propTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
+  todoitem: propTypes.object,
 };
 
 export default ListItemTodo;

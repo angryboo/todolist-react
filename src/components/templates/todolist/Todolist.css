@@ -1,4 +1,5 @@
 .add-board-layout {
   padding-top: 90px;
   padding-left: 30px;
+  position: fixed;
 }

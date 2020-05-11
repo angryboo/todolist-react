@@ -15,6 +15,7 @@ const AddBoardInput = ({ getBoardName }) => {
         getBoardName(inputRef.current.value);
       }}
       ref={inputRef}
+      form="input-board"
     />
   );
 };

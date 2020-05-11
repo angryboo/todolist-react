@@ -9,19 +9,16 @@ const st = classNames.bind(style);
 
 const AddBoard = ({ board, setBoard }) => {
   const [boardName, getBoardName] = useState('');
-  // let boardName = '';
-  // const getBoardName = (name) => {
-  //   boardName = name;
-  // };
-
   const generateID = () => Math.max(...board.map(({ id }) => id)) + 1;
   const addBoard = (e) => {
     e.preventDefault();
+    if (!boardName.length) return;
     setBoard(() => [...board, { id: generateID(), boardName, list: [] }]);
     getBoardName('');
+    e.target.lastElementChild.firstElementChild.value = '';
   };
   return (
-    <form className={st('add-board')} onSubmit={addBoard}>
+    <form className={st('add-board')} onSubmit={addBoard} id="input-board">
       <AddBoardButton board={board} setBoard={setBoard} />
       <div className={st('add-board-input-layout')}>
         <AddBoardInput

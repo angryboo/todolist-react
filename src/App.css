@@ -2,5 +2,5 @@
   width: 100vw;
   height: 100vh;
   background: linear-gradient(to right, #5FC3E4, #E55D87);
-  overflow: hidden;
+  overflow: auto;
 }
