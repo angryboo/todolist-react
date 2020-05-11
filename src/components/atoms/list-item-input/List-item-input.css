@@ -1,0 +1,8 @@
+.list-item-input {
+  width: 250px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+}

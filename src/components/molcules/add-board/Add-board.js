@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import style from './Add-board.css';
@@ -8,16 +8,17 @@ import AddBoardButton from '../../atoms/add-board-button/Add-board-button';
 const st = classNames.bind(style);
 
 const AddBoard = ({ board, setBoard }) => {
-  let boardName = '';
-  const getBoardName = (name) => {
-    boardName = name;
-  };
+  const [boardName, getBoardName] = useState('');
+  // let boardName = '';
+  // const getBoardName = (name) => {
+  //   boardName = name;
+  // };
+
   const generateID = () => Math.max(...board.map(({ id }) => id)) + 1;
   const addBoard = (e) => {
     e.preventDefault();
-    console.log(boardName);
-    console.log(board);
     setBoard(() => [...board, { id: generateID(), boardName, list: [] }]);
+    getBoardName('');
   };
   return (
     <form className={st('add-board')} onSubmit={addBoard}>
@@ -27,6 +28,7 @@ const AddBoard = ({ board, setBoard }) => {
           board={board}
           setBoard={setBoard}
           getBoardName={getBoardName}
+          boardName={boardName}
         />
       </div>
     </form>

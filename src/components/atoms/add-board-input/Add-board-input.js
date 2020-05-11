@@ -11,7 +11,9 @@ const AddBoardInput = ({ getBoardName }) => {
     <input
       className={st('add-board-input')}
       type="text"
-      onChange={() => getBoardName(inputRef.current.value)}
+      onChange={() => {
+        getBoardName(inputRef.current.value);
+      }}
       ref={inputRef}
     />
   );

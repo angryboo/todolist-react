@@ -1,0 +1,7 @@
+.remove-board {
+  width: 70px;
+  background-color: transparent;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
